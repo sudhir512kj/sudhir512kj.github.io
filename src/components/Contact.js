@@ -35,6 +35,7 @@ const Contact = () => {
         {
           from_name: formData.name,
           from_email: formData.email,
+          to_email: 'sudhirmeena230995@gmail.com',
           subject: formData.subject || 'New Contact from Portfolio',
           message: formData.message,
           reply_to: formData.email,
