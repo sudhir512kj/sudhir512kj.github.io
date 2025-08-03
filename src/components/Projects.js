@@ -8,8 +8,32 @@ const Projects = () => {
       description: 'Complete e-commerce solution for custom merchandise with integrated payment processing, inventory management, and order tracking.',
       technologies: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap'],
       metrics: ['Live Production', 'Payment Gateway', 'Inventory System'],
-      link: 'https://github.com/sudhir512kj/BasBeta',
-      linkText: 'Visit Project',
+      links: [
+        { url: 'https://github.com/sudhir512kj/BasBeta', text: 'View on GitHub' }
+      ],
+      featured: false,
+    },
+    {
+      title: 'Excal Project - Encryption & Decryption Tool',
+      subtitle: 'Cybersecurity Application',
+      description: 'Comprehensive encryption and decryption tool created for Techspardha 2016 at NIT Kurukshetra. Features hash recognition, multiple encryption methods, multi-language support, and WiFi security tools.',
+      technologies: ['PHP7', 'JavaScript', 'Bootstrap', 'jQuery', 'Materialize CSS', 'HTML/CSS'],
+      metrics: ['Hash Recognition', 'Multi-Language Support', 'WiFi Security Tools', 'User Authentication'],
+      links: [
+        { url: 'https://github.com/sudhir512kj/excal_project', text: 'View on GitHub' }
+      ],
+      featured: false,
+    },
+    {
+      title: 'Weather Forecast UI',
+      subtitle: 'React Weather Application',
+      description: 'Full-stack weather application with React frontend and Spring Boot backend. Features offline capabilities, responsive design, recent search history, weather advisories, and containerized deployment with CI/CD pipeline.',
+      technologies: ['React', 'Material-UI', 'Spring Boot', 'Java 21', 'Docker', 'Jenkins', 'LocalForage', 'Node.js', 'Maven', 'OpenWeatherMap API', 'Caffeine Cache'],
+      metrics: ['Offline Mode', 'Responsive Design', 'CI/CD Pipeline', 'Docker Deployment'],
+      links: [
+        { url: 'https://github.com/sudhir512kj/predictWeatherFrontend', text: 'Frontend Repo' },
+        { url: 'https://github.com/sudhir512kj/predictWeather', text: 'Backend Repo' }
+      ],
       featured: false,
     },
   ];
@@ -72,17 +96,22 @@ const Projects = () => {
                 </div>
               </div>
 
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`block w-full text-center py-3 rounded-lg font-semibold transition-colors ${project.featured
-                  ? 'bg-blue-600 text-white hover:bg-blue-700'
-                  : 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white'
-                  }`}
-              >
-                🔗 {project.linkText}
-              </a>
+              <div className="space-y-2">
+                {project.links.map((link, linkIdx) => (
+                  <a
+                    key={linkIdx}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block w-full text-center py-3 rounded-lg font-semibold transition-colors ${project.featured
+                      ? 'bg-blue-600 text-white hover:bg-blue-700'
+                      : 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white'
+                      }`}
+                  >
+                    🔗 {link.text}
+                  </a>
+                ))}
+              </div>
             </div>
           ))}
         </div>
