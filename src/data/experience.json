@@ -61,10 +61,31 @@
       ],
       "technologies": [
         "Java",
-        "Servlets",
-        "JSP",
-        "JUnit",
-        "MySQL"
+        "Spring Boot",
+        "REST APIs",
+        "OAuth",
+        "JWT",
+        "MongoDB"
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Paxcom India - a Paymentus Company",
+      "location": "Delhi, India",
+      "period": "11/2020 - 12/2021 ",
+      "description": "Contributed to the development of chatbot projects for e-commerce, fintech, dental, and internal use cases.",
+      "responsibilities": [
+        "Created a robust chatbot software using Python, Java, Docker and MongoDB, achieving 99% uptime and processing 10, 000 queries per day. Enhanced accuracy and reducing latency by 25%.",
+        "Engineered a dental booking chatbot backend utilizing SpringBoot and MongoDB, enhancing user engagement and achieving a 30% increase in appointment bookings",
+        "Engineered a Chatbot Admin Panel using Nest JS and Next.js, reducing response time by 30% and enhancing user experience."
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "REST APIs",
+        "OAuth",
+        "JWT",
+        "MongoDB"
       ]
     }
   ]
