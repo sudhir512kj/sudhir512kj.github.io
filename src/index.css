@@ -2,13 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
 }
 
 html {
@@ -41,6 +46,7 @@ html {
 }
 
 .hero-title {
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -48,13 +54,16 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  letter-spacing: -0.01em;
 }
 
 .hero-subtitle {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   font-weight: 500;
   color: #e2e8f0;
   margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
 }
 
 .hero-profile-img {
