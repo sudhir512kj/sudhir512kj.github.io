@@ -15,12 +15,12 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Projects</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">Projects</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-300">
             Here are some of the projects I've worked on
           </p>
         </div>
