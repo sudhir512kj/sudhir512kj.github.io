@@ -47,6 +47,22 @@ const Experience = () => {
                 </div>
               </div>
             ))}
+            
+            {/* More+ Button */}
+            <div className="relative mb-12">
+              <div className="absolute -left-10 top-2 w-4 h-4 bg-gray-400 rounded-full border-4 border-white shadow-lg"></div>
+              
+              <div className="ml-4">
+                <a
+                  href="/SudhirMeena_JavaBackend_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+                >
+                  📄 More+ (View Resume)
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

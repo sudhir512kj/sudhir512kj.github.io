@@ -53,7 +53,7 @@ const Skills = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {skillCategories.map((category, index) => (
-            <div key={index} className="bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-700">
+            <div key={index} className="bg-gray-800 rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-700">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg flex items-center justify-center mr-4">
                   <span className="text-white text-xl">💻</span>
