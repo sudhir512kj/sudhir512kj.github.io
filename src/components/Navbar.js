@@ -1,93 +1,61 @@
 import React, { useState } from 'react';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  Box,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  useMediaQuery,
-  useTheme
-} from '@mui/material';
-import { Menu as MenuIcon, GetApp } from '@mui/icons-material';
 
 const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
+  const [isOpen, setIsOpen] = useState(false);
   const menuItems = ['Home', 'About', 'Skills', 'Experience', 'Projects', 'Contact'];
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <Box sx={{ width: 250 }}>
-      <List>
-        {menuItems.map((item) => (
-          <ListItem button key={item} component="a" href={`#${item.toLowerCase()}`}>
-            <ListItemText primary={item} />
-          </ListItem>
-        ))}
-        <ListItem button component="a" href="/SudhirMeena_JavaBackend_Resume.pdf" target="_blank">
-          <ListItemText primary="Resume" />
-        </ListItem>
-      </List>
-    </Box>
-  );
-
   return (
-    <>
-      <AppBar position="fixed" sx={{ backgroundColor: 'rgba(30, 41, 59, 0.95)', backdropFilter: 'blur(10px)' }}>
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 700 }}>
-            SUDHIR MEENA
-          </Typography>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="font-bold text-white text-xl">SUDHIR MEENA</div>
           
-          {isMobile ? (
-            <IconButton color="inherit" onClick={handleDrawerToggle}>
-              <MenuIcon />
-            </IconButton>
-          ) : (
-            <Box sx={{ display: 'flex', gap: 2 }}>
+          <div className="hidden md:flex space-x-8">
+            {menuItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-white hover:text-blue-400 transition-colors"
+              >
+                {item}
+              </a>
+            ))}
+            <a
+              href="/SudhirMeena_JavaBackend_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Resume
+            </a>
+          </div>
+          
+          <button
+            className="md:hidden text-white"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            ☰
+          </button>
+        </div>
+        
+        {isOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1">
               {menuItems.map((item) => (
-                <Button
+                <a
                   key={item}
-                  color="inherit"
                   href={`#${item.toLowerCase()}`}
-                  sx={{ textTransform: 'none' }}
+                  className="block text-white hover:text-blue-400 px-3 py-2"
+                  onClick={() => setIsOpen(false)}
                 >
                   {item}
-                </Button>
+                </a>
               ))}
-              <Button
-                variant="contained"
-                startIcon={<GetApp />}
-                href="/SudhirMeena_JavaBackend_Resume.pdf"
-                target="_blank"
-                sx={{ ml: 2 }}
-              >
-                Resume
-              </Button>
-            </Box>
-          )}
-        </Toolbar>
-      </AppBar>
-      
-      <Drawer
-        variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{ keepMounted: true }}
-      >
-        {drawer}
-      </Drawer>
-    </>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 };
 

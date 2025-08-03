@@ -1,62 +1,44 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, IconButton } from '@mui/material';
-import { GitHub, LinkedIn, Twitter, Email } from '@mui/icons-material';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <GitHub />, link: 'https://github.com/sudhir512kj' },
-    { icon: <LinkedIn />, link: '#' },
-    { icon: <Twitter />, link: 'https://twitter.com/sudhir5125' },
-    { icon: <Email />, link: 'mailto:sureshmeena512@gmail.com' },
+    { icon: '🐙', link: 'https://github.com/sudhir512kj', label: 'GitHub' },
+    { icon: '💼', link: '#', label: 'LinkedIn' },
+    { icon: '🐦', link: 'https://twitter.com/sudhir5125', label: 'Twitter' },
+    { icon: '📧', link: 'mailto:sureshmeena512@gmail.com', label: 'Email' },
   ];
 
   return (
-    <Box
-      component="footer"
-      sx={{
-        backgroundColor: '#1e293b',
-        color: 'white',
-        py: 4,
-      }}
-    >
-      <Container maxWidth="lg">
-        <Grid container spacing={4} alignItems="center">
-          <Grid item xs={12} md={6}>
-            <Typography variant="h5" sx={{ fontWeight: 600, mb: 1 }}>
-              Sudhir Meena
-            </Typography>
-            <Typography color="text.secondary">
-              Java Backend Developer
-            </Typography>
-          </Grid>
+    <footer className="bg-slate-900 text-white py-12">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 className="text-2xl font-bold mb-2">Sudhir Meena</h3>
+            <p className="text-gray-400">Java Backend Developer</p>
+          </div>
           
-          <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'right' } }}>
-            <Box sx={{ mb: 2 }}>
+          <div className="text-center md:text-right">
+            <div className="flex justify-center md:justify-end gap-6 mb-4">
               {socialLinks.map((social, index) => (
-                <IconButton
+                <a
                   key={index}
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  sx={{
-                    color: '#94a3b8',
-                    mx: 0.5,
-                    '&:hover': {
-                      color: '#3b82f6',
-                    },
-                  }}
+                  className="text-2xl hover:text-blue-400 transition-colors"
+                  title={social.label}
                 >
                   {social.icon}
-                </IconButton>
+                </a>
               ))}
-            </Box>
-            <Typography variant="body2" color="text.secondary">
+            </div>
+            <p className="text-gray-400 text-sm">
               © 2023 Sudhir Meena. All rights reserved.
-            </Typography>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 

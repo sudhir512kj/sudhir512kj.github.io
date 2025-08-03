@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Box, Container, Typography, Grid, Card, CardContent, TextField, Button, Avatar, Alert, CircularProgress } from '@mui/material';
-import { Email, GitHub, LinkedIn, Twitter, Send } from '@mui/icons-material';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -55,25 +53,25 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <Email />,
+      icon: '📧',
       title: 'Email',
       value: 'sudhirmeena230995@gmail.com',
-      link: 'mailto:sureshmeena512@gmail.com',
+      link: 'mailto:sudhirmeena230995@gmail.com',
     },
     {
-      icon: <GitHub />,
+      icon: '🐙',
       title: 'GitHub',
       value: 'github.com/sudhir512kj',
       link: 'https://github.com/sudhir512kj',
     },
     {
-      icon: <LinkedIn />,
+      icon: '💼',
       title: 'LinkedIn',
-      value: 'https://www.linkedin.com/in/sudhir-meena-b29982b7/',
-      link: '#',
+      value: 'linkedin.com/in/sudhir-meena-b29982b7',
+      link: 'https://www.linkedin.com/in/sudhir-meena-b29982b7/',
     },
     {
-      icon: <Twitter />,
+      icon: '🐦',
       title: 'Twitter',
       value: 'twitter.com/sudhir5125',
       link: 'https://twitter.com/sudhir5125',
@@ -81,151 +79,113 @@ const Contact = () => {
   ];
 
   return (
-    <Box id="contact" sx={{ py: 8 }}>
-      <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Typography variant="h2" sx={{ fontWeight: 700, mb: 2 }}>
-            Get In Touch
-          </Typography>
-          <Box
-            sx={{
-              width: 80,
-              height: 4,
-              background: 'linear-gradient(90deg, #2563eb, #3b82f6)',
-              margin: '0 auto 2rem',
-              borderRadius: 2,
-            }}
-          />
-          <Typography variant="h6" color="text.secondary">
+    <section id="contact" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600">
             Feel free to reach out for collaborations or just a friendly chat
-          </Typography>
-        </Box>
+          </p>
+        </div>
 
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={5}>
-            <Card sx={{ height: '100%', boxShadow: 3 }}>
-              <CardContent sx={{ p: 4 }}>
-                <Typography variant="h5" sx={{ fontWeight: 600, mb: 3 }}>
-                  Contact Information
-                </Typography>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div className="md:col-span-2">
+            <div className="bg-white rounded-lg shadow-lg p-8 h-full">
+              <h3 className="text-2xl font-semibold mb-8">Contact Information</h3>
 
-                {contactInfo.map((info, index) => (
-                  <Box key={index} sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                    <Avatar
-                      sx={{
-                        background: 'linear-gradient(135deg, #2563eb, #3b82f6)',
-                        width: 50,
-                        height: 50,
-                        mr: 2,
-                      }}
+              {contactInfo.map((info, index) => (
+                <div key={index} className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-xl">{info.icon}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-1">{info.title}</h4>
+                    <a
+                      href={info.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-blue-600 transition-colors"
                     >
-                      {info.icon}
-                    </Avatar>
-                    <Box>
-                      <Typography variant="h6" sx={{ mb: 0.5 }}>
-                        {info.title}
-                      </Typography>
-                      <Typography
-                        component="a"
-                        href={info.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        sx={{
-                          color: 'text.secondary',
-                          textDecoration: 'none',
-                          '&:hover': { color: 'primary.main' },
-                        }}
-                      >
-                        {info.value}
-                      </Typography>
-                    </Box>
-                  </Box>
-                ))}
-              </CardContent>
-            </Card>
-          </Grid>
+                      {info.value}
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-          <Grid item xs={12} md={7}>
-            <Card sx={{ boxShadow: 3 }}>
-              <CardContent sx={{ p: 4 }}>
-                <Typography variant="h5" sx={{ fontWeight: 600, mb: 3 }}>
-                  Send Me a Message
-                </Typography>
+          <div className="md:col-span-3">
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h3 className="text-2xl font-semibold mb-8">Send Me a Message</h3>
 
-                {alert.show && (
-                  <Alert
-                    severity={alert.type}
-                    sx={{ mb: 3 }}
-                    onClose={() => setAlert({ show: false, type: '', message: '' })}
+              {alert.show && (
+                <div className={`p-4 rounded-lg mb-6 ${alert.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                  }`}>
+                  {alert.message}
+                  <button
+                    onClick={() => setAlert({ show: false, type: '', message: '' })}
+                    className="float-right text-xl"
                   >
-                    {alert.message}
-                  </Alert>
-                )}
+                    ×
+                  </button>
+                </div>
+              )}
 
-                <Box component="form" onSubmit={handleSubmit}>
-                  <Grid container spacing={3}>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        fullWidth
-                        label="Name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                      />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        fullWidth
-                        label="Email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField
-                        fullWidth
-                        label="Subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField
-                        fullWidth
-                        label="Message"
-                        name="message"
-                        multiline
-                        rows={5}
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        size="large"
-                        disabled={loading}
-                        startIcon={loading ? <CircularProgress size={20} color="inherit" /> : <Send />}
-                        sx={{ textTransform: 'uppercase', letterSpacing: 0.5 }}
-                      >
-                        {loading ? 'Sending...' : 'Send Message'}
-                      </Button>
-                    </Grid>
-                  </Grid>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold disabled:opacity-50"
+                >
+                  {loading ? 'Sending...' : '📤 Send Message'}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

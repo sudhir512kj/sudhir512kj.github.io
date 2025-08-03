@@ -1,12 +1,9 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, Card, CardContent, LinearProgress, Avatar, Rating, Chip } from '@mui/material';
-import { Code, Cloud, Storage, Computer } from '@mui/icons-material';
 
 const Skills = () => {
   const skillCategories = [
     {
       title: 'Backend Technologies',
-      icon: <Computer />,
       skills: [
         { name: 'Java', level: 95 },
         { name: 'Spring Boot', level: 90 },
@@ -16,7 +13,6 @@ const Skills = () => {
     },
     {
       title: 'Cloud & DevOps',
-      icon: <Cloud />,
       skills: [
         { name: 'AWS', level: 85 },
         { name: 'Docker', level: 88 },
@@ -26,7 +22,6 @@ const Skills = () => {
     },
     {
       title: 'Databases',
-      icon: <Storage />,
       skills: [
         { name: 'PostgreSQL', level: 88 },
         { name: 'MySQL', level: 85 },
@@ -36,7 +31,6 @@ const Skills = () => {
     },
     {
       title: 'Programming Languages',
-      icon: <Code />,
       skills: [
         { name: 'Java', level: 95 },
         { name: 'Golang', level: 82 },
@@ -47,89 +41,47 @@ const Skills = () => {
   ];
 
   return (
-    <Box id="skills" sx={{ py: 8, backgroundColor: '#f8fafc' }}>
-      <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Typography variant="h2" sx={{ fontWeight: 700, mb: 2 }}>
-            Technical Skills
-          </Typography>
-          <Box
-            sx={{
-              width: 80,
-              height: 4,
-              background: 'linear-gradient(90deg, #2563eb, #3b82f6)',
-              margin: '0 auto 2rem',
-              borderRadius: 2,
-            }}
-          />
-          <Typography variant="h6" color="text.secondary">
+    <section id="skills" className="py-20 bg-white">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Technical Skills</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600">
             My technical expertise spans across various technologies and tools
-          </Typography>
-        </Box>
+          </p>
+        </div>
 
-        <Grid container spacing={4}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {skillCategories.map((category, index) => (
-            <Grid item xs={12} lg={6} key={index}>
-              <Card sx={{ height: '100%', boxShadow: 3, transition: 'all 0.3s ease', '&:hover': { transform: 'translateY(-4px)', boxShadow: 6 } }}>
-                <CardContent sx={{ p: 3 }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                    <Avatar
-                      sx={{
-                        background: 'linear-gradient(135deg, #2563eb, #3b82f6)',
-                        mr: 2,
-                        width: 50,
-                        height: 50,
-                      }}
-                    >
-                      {category.icon}
-                    </Avatar>
-                    <Typography variant="h5" sx={{ fontWeight: 600 }}>
-                      {category.title}
-                    </Typography>
-                  </Box>
+            <div key={index} className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg flex items-center justify-center mr-4">
+                  <span className="text-white text-xl">💻</span>
+                </div>
+                <h3 className="text-2xl font-semibold">{category.title}</h3>
+              </div>
 
-                  {category.skills.map((skill, idx) => (
-                    <Box key={idx} sx={{ mb: 3 }}>
-                      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
-                        <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                          {skill.name}
-                        </Typography>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                          <Rating
-                            value={Math.floor(skill.level / 20)}
-                            readOnly
-                            size="small"
-                            sx={{ fontSize: '0.8rem' }}
-                          />
-                          <Chip
-                            label={`${skill.level}%`}
-                            color="primary"
-                            size="small"
-                          />
-                        </Box>
-                      </Box>
-                      <LinearProgress
-                        variant="determinate"
-                        value={skill.level}
-                        sx={{
-                          height: 10,
-                          borderRadius: 5,
-                          backgroundColor: '#f1f5f9',
-                          '& .MuiLinearProgress-bar': {
-                            background: 'linear-gradient(90deg, #2563eb, #3b82f6)',
-                            borderRadius: 5,
-                          },
-                        }}
-                      />
-                    </Box>
-                  ))}
-                </CardContent>
-              </Card>
-            </Grid>
+              {category.skills.map((skill, idx) => (
+                <div key={idx} className="mb-6">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-medium text-gray-800">{skill.name}</span>
+                    <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
+                      {skill.level}%
+                    </span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div 
+                      className="bg-gradient-to-r from-blue-600 to-blue-400 h-3 rounded-full transition-all duration-1000"
+                      style={{ width: `${skill.level}%` }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
           ))}
-        </Grid>
-      </Container>
-    </Box>
+        </div>
+      </div>
+    </section>
   );
 };
 
