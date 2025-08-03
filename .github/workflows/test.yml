@@ -1,0 +1,28 @@
+name: Test Build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Build
+      run: npm run build
+      env:
+        REACT_APP_EMAILJS_SERVICE_ID: test_service
+        REACT_APP_EMAILJS_TEMPLATE_ID: test_template  
+        REACT_APP_EMAILJS_PUBLIC_KEY: test_key
