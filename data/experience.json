@@ -1,0 +1,71 @@
+{
+  "experiences": [
+    {
+      "title": "Lead Software Engineer",
+      "company": "Persistent Systems",
+      "location": "Gurgaon, Haryana",
+      "period": "07/2020 - Present",
+      "description": "Leading backend development for enterprise applications using Java, Golang and microservices.",
+      "responsibilities": [
+        "Designed a robust PaaS platform with Java, Golang, and Kubernetes on AWS and Azure, achieving 50% enhanced scalability for large-scale applications.",
+        "Developed a Self Hosted Platform - a low code platform to develop and deploy applications.",
+        "Upgraded IBM Cloud DB2 Warehouse utilizing Kubernetes Operators and Golang, resulting in a 40% boost in performance and reducing downtime by 25%.",
+        "Established a secure database environment, achieved a compliance rate of 100%.",
+        "Developed CME using Azure, AWS and Postgres, which increases security compliance by 40%."
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Microservices",
+        "Docker",
+        "Jenkins",
+        "MySQL",
+        "AWS",
+        "Azure",
+        "Kubernetes",
+        "Golang",
+        "PostgreSQL",
+        "IBM Cloud DB2",
+        "Kubernetes Operators"
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Yellow.ai",
+      "location": "Bangalore, Karnataka",
+      "period": "09/2022 - 03/2023",
+      "description": "Developed chatbot projects for e-commerce, fintech, and internal use cases.",
+      "responsibilities": [
+        "Designed high-impact chatbot strategies for DANA and FEG systems, improving event management efficiency by 40% and reducing resolution duration by 30% using Docker, Kubernetes and Postgres.",
+        "Created a robust backend for a chatbot leveraging Python, Java, AWS, MongoDB, resulting in a 40% increase in user engagement over three months."
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "REST APIs",
+        "OAuth",
+        "JWT",
+        "MongoDB"
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Fraazo",
+      "location": "Mumbai, India",
+      "period": "01/2022 - 09/2022",
+      "description": "Contributed to the development of a microservices-based architecture for an retail platform.",
+      "responsibilities": [
+        "Implemented a high-performance Rider App backend using Golang, Java, AWS, Postgres, decreasing response times by 30% across 50, 000 daily users.",
+        "Implemented dashboard features for daily activity updates and report generation, increasing operational efficiency by 25%.",
+        "Enhanced system architecture through Kafka integration, Docker, Kubernetes, resulting in a 25% boost in reliability and reduced latency."
+      ],
+      "technologies": [
+        "Java",
+        "Servlets",
+        "JSP",
+        "JUnit",
+        "MySQL"
+      ]
+    }
+  ]
+}

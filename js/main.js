@@ -1,6 +1,9 @@
 // Main JavaScript for Portfolio Website
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Load experiences from JSON
+  loadExperiences();
+  
   // Navbar scroll behavior
   const navbar = document.querySelector('.navbar');
   const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
@@ -107,3 +110,41 @@ document.addEventListener('DOMContentLoaded', function() {
   // Run animation check on initial load
   animateOnScroll();
 });
+
+// Load experiences from JSON file
+function loadExperiences() {
+  fetch('data/experience.json')
+    .then(response => response.json())
+    .then(data => {
+      const timeline = document.getElementById('experience-timeline');
+      timeline.innerHTML = '';
+      
+      data.experiences.forEach(exp => {
+        const timelineItem = document.createElement('div');
+        timelineItem.className = 'timeline-item';
+        
+        const responsibilitiesList = exp.responsibilities.map(resp => `<li>${resp}</li>`).join('');
+        const techBadges = exp.technologies.map(tech => `<span class="badge bg-secondary me-1 mb-1">${tech}</span>`).join('');
+        
+        timelineItem.innerHTML = `
+          <div class="timeline-content shadow-sm">
+            <h4>${exp.title}</h4>
+            <p class="company">${exp.company} - ${exp.location}</p>
+            <p class="period">${exp.period}</p>
+            <p class="description">${exp.description}</p>
+            <ul>${responsibilitiesList}</ul>
+            <div class="mt-3">
+              <strong>Technologies:</strong><br>
+              ${techBadges}
+            </div>
+          </div>
+        `;
+        
+        timeline.appendChild(timelineItem);
+      });
+    })
+    .catch(error => {
+      console.error('Error loading experiences:', error);
+      document.getElementById('experience-timeline').innerHTML = '<p class="text-center">Unable to load experience data.</p>';
+    });
+}
