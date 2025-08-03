@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, Grid, Card, CardContent, Button, Chip, Avatar } from '@mui/material';
+// eslint-disable-next-line no-unused-vars
 import { Cloud, Build, SmartToy, ShoppingCart, Launch, Star } from '@mui/icons-material';
 
 const Projects = () => {
@@ -17,15 +18,6 @@ const Projects = () => {
     },
   ];
 
-  const getIcon = (iconComponent) => {
-    const iconMap = {
-      Cloud: <Cloud />,
-      Build: <Build />,
-      SmartToy: <SmartToy />,
-      ShoppingCart: <ShoppingCart />,
-    };
-    return iconComponent;
-  };
 
   return (
     <Box id="projects" sx={{ py: 8, backgroundColor: '#f8fafc' }}>

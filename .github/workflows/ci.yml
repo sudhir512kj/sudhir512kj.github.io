@@ -25,6 +25,8 @@ jobs:
       
     - name: Run tests
       run: npm test -- --coverage --watchAll=false
+      env:
+        CI: false
       
     - name: Build
       run: npm run build
@@ -32,3 +34,4 @@ jobs:
         REACT_APP_EMAILJS_SERVICE_ID: test_service_id
         REACT_APP_EMAILJS_TEMPLATE_ID: test_template_id
         REACT_APP_EMAILJS_PUBLIC_KEY: test_public_key
+        CI: false
