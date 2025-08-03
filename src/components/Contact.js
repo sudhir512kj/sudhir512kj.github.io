@@ -57,7 +57,7 @@ const Contact = () => {
     {
       icon: <Email />,
       title: 'Email',
-      value: 'sureshmeena512@gmail.com',
+      value: 'sudhirmeena230995@gmail.com',
       link: 'mailto:sureshmeena512@gmail.com',
     },
     {
@@ -69,7 +69,7 @@ const Contact = () => {
     {
       icon: <LinkedIn />,
       title: 'LinkedIn',
-      value: 'linkedin.com/in/sudhirmeena',
+      value: 'https://www.linkedin.com/in/sudhir-meena-b29982b7/',
       link: '#',
     },
     {
