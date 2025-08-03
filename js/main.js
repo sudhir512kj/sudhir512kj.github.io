@@ -113,8 +113,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Load experiences from JSON file
 function loadExperiences() {
-  fetch('data/experience.json')
-    .then(response => response.json())
+  fetch('./data/experience.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
     .then(data => {
       const timeline = document.getElementById('experience-timeline');
       timeline.innerHTML = '';
