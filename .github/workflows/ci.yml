@@ -2,36 +2,36 @@ name: CI
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [master, main, develop]
   pull_request:
-    branches: [ main ]
+    branches: [master, main]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm install
-      
-    - name: Run tests
-      run: npm test -- --coverage --watchAll=false
-      env:
-        CI: false
-      
-    - name: Build
-      run: npm run build
-      env:
-        REACT_APP_EMAILJS_SERVICE_ID: test_service_id
-        REACT_APP_EMAILJS_TEMPLATE_ID: test_template_id
-        REACT_APP_EMAILJS_PUBLIC_KEY: test_public_key
-        CI: false
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test -- --coverage --watchAll=false
+        env:
+          CI: false
+
+      - name: Build
+        run: npm run build
+        env:
+          REACT_APP_EMAILJS_SERVICE_ID: test_service_id
+          REACT_APP_EMAILJS_TEMPLATE_ID: test_template_id
+          REACT_APP_EMAILJS_PUBLIC_KEY: test_public_key
+          CI: false
