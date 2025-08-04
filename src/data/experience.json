@@ -81,6 +81,7 @@
       ],
       "technologies": [
         "Java",
+        "Python",
         "Spring Boot",
         "REST APIs",
         "OAuth",
