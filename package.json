@@ -1,7 +1,7 @@
 {
   "name": "sudhir-portfolio",
   "version": "0.1.0",
-
+  "homepage": "https://sudhir512kj.github.io/sudhir512kj.github.io",
   "private": true,
   "dependencies": {
     "@react-three/drei": "^9.92.7",
