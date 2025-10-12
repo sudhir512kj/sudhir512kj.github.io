@@ -37,7 +37,7 @@ const Hero = () => {
                 Get In Touch
               </a>
               <a
-                href="/SudhirMeena_JavaBackend_Resume.pdf"
+                href="/SudhirMeena_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border-2 border-white text-white px-6 py-3 rounded-lg hover:bg-white/10 transition-colors font-semibold"

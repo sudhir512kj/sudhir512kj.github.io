@@ -1,0 +1,56 @@
+{
+  "certifications": [
+    {
+      "name": "Microsoft Certified: Azure Fundamentals",
+      "issuer": "Microsoft",
+      "date": "2024",
+      "credentialId": "51E96925E2F49E30",
+      "description": "Validates foundational knowledge of cloud services and how they are provided with Microsoft Azure",
+      "skills": [
+        "Cloud Computing",
+        "Azure Services",
+        "Networking",
+        "Security"
+      ]
+    },
+    {
+      "name": "Salesforce Certified Platform Developer I",
+      "issuer": "Salesforce",
+      "date": "2024",
+      "credentialId": "4794606",
+      "description": "Validates knowledge of Salesforce platform development",
+      "skills": [
+        "Apex Programming",
+        "Visualforce",
+        "Lightning Components",
+        "Salesforce Architecture"
+      ]
+    },
+    {
+      "name": "Google Cybersecurity Specialist Certificate",
+      "issuer": "Coursera",
+      "date": "2024",
+      "credentialId": "YZPY6BA9929W",
+      "description": "Validates knowledge of cybersecurity principles and practices",
+      "skills": [
+        "Network Security",
+        "Threat Analysis",
+        "Cryptography",
+        "Incident Response"
+      ]
+    },
+    {
+      "name": "Deep Learning Specialization",
+      "issuer": "Coursera",
+      "date": "2022",
+      "credentialId": "Y3GPE6P8HCSV",
+      "description": "Covers foundational concepts in deep learning, including neural networks, convolutional networks, and sequence models",
+      "skills": [
+        "Neural Networks",
+        "Convolutional Networks",
+        "Sequence Models",
+        "Deep Learning Frameworks"
+      ]
+    }
+  ]
+}
