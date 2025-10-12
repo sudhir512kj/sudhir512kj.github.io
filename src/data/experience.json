@@ -1,10 +1,26 @@
 {
   "experiences": [
     {
+      "title": "Senior Associate Technology L1",
+      "company": "Publicis Sapient",
+      "location": "Gurgaon, Haryana",
+      "period": "10/2025 - Present",
+      "description": "Working with a Fintech client to develop and maintain microservices using Java, Spring Boot, Docker, Kubernetes and AWS.",
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Microservices",
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "MySQL"
+      ]
+    },
+    {
       "title": "Lead Software Engineer",
       "company": "Persistent Systems",
       "location": "Gurgaon, Haryana",
-      "period": "07/2023 - Present",
+      "period": "07/2023 - 09/2025",
       "description": "Leading backend development for enterprise applications using Java, Golang and microservices.",
       "responsibilities": [
         "Designed a robust PaaS platform with Java, Golang, and Kubernetes on AWS and Azure, achieving 50% enhanced scalability for large-scale applications.",
