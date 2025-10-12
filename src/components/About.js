@@ -40,7 +40,19 @@ const About = () => {
               <h3 className="text-2xl font-semibold">Professional Summary</h3>
             </div>
             <p className="text-gray-600 mb-6">
-              Lead Software Engineer specializing in microservices architecture, cloud-native applications, and DevOps practices. Proven track record of delivering scalable solutions that handle millions of requests while maintaining high performance and reliability.
+              Results-driven Lead Software Engineer
+              with 6+ years of experience architecting
+              and developing highly scalable,
+              enterprise-grade applications using
+              Java, Python, and Golang. Proven track
+              record of delivering distributed systems
+              that handle large-scale volumes while
+              leading cross-functional teams and
+              mentoring engineers. Seeking to
+              leverage deep expertise in concurrent
+              programming and system architecture
+              to contribute to innovative technology
+              solutions.
             </p>
             <div className="flex flex-wrap gap-2">
               <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Team Leadership</span>
@@ -54,7 +66,7 @@ const About = () => {
               <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg flex items-center justify-center mr-4">
                 <span className="text-white text-xl">🎓</span>
               </div>
-              <h3 className="text-2xl font-semibold">Education & Certifications</h3>
+              <h3 className="text-2xl font-semibold">Education</h3>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-400 mb-6">
               <h4 className="text-lg font-semibold mb-2">B.Tech in Computer Science</h4>
@@ -62,10 +74,11 @@ const About = () => {
               <p className="text-gray-500 text-sm">2014 - 2018</p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">AWS Certified</span>
-              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Spring Certified</span>
-              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Oracle Java SE</span>
-              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Google Cybersecurity</span>
+              <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Java/Python/C#/C++ Programming</span>
+              <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">DSA</span>
+              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Databases</span>
+              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Computer Networking</span>
+              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">OS and Computer Architecture</span>
             </div>
           </div>
         </div>

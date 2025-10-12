@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const menuItems = ['Home', 'About', 'Skills', 'Experience', 'Projects', 'Contact'];
+  const menuItems = ['Home', 'About', 'Skills', 'Experience', 'Certifications', 'Projects', 'Contact'];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md">
