@@ -28,11 +28,13 @@ const Experience = () => {
                   <p className="text-blue-500 font-medium text-sm mb-4">{exp.period}</p>
                   <p className="text-gray-700 mb-4">{exp.description}</p>
                   
-                  <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
-                    {exp.responsibilities.map((resp, idx) => (
-                      <li key={idx}>{resp}</li>
-                    ))}
-                  </ul>
+                  {exp.responsibilities && exp.responsibilities.length > 0 && (
+                    <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                      {exp.responsibilities.map((resp, idx) => (
+                        <li key={idx}>{resp}</li>
+                      ))}
+                    </ul>
+                  )}
                   
                   <div>
                     <p className="font-semibold text-gray-800 mb-3">Technologies:</p>
