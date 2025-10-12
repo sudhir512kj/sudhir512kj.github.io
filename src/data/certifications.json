@@ -28,7 +28,7 @@
     },
     {
       "name": "Google Cybersecurity Specialist Certificate",
-      "issuer": "Coursera",
+      "issuer": "Google",
       "date": "2024",
       "credentialId": "YZPY6BA9929W",
       "description": "Validates knowledge of cybersecurity principles and practices",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Deep Learning Specialization",
-      "issuer": "Coursera",
+      "issuer": "DeepLearning.AI",
       "date": "2022",
       "credentialId": "Y3GPE6P8HCSV",
       "description": "Covers foundational concepts in deep learning, including neural networks, convolutional networks, and sequence models",
