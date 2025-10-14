@@ -49,7 +49,9 @@ const Hero = () => {
 
           <div className="hidden lg:block text-center">
             <img
-              src="/images/profile_photo.jpg"
+              src="/images/profile_photo_512.jpg"
+              srcSet="/images/profile_photo_256.jpg 256w, /images/profile_photo_512.jpg 512w"
+              sizes="(max-width: 1024px) 256px, 512px"
               alt="Sudhir Meena"
               className="hero-profile-img mx-auto"
             />
