@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="font-bold text-white text-xl">SUDHIR MEENA</div>
-          
+
           <div className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
               <a
@@ -21,7 +21,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="/SudhirMeena_JavaBackend_Resume.pdf"
+              href="/SudhirMeena_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
@@ -29,7 +29,7 @@ const Navbar = () => {
               Resume
             </a>
           </div>
-          
+
           <button
             className="md:hidden text-white"
             onClick={() => setIsOpen(!isOpen)}
@@ -37,7 +37,7 @@ const Navbar = () => {
             ☰
           </button>
         </div>
-        
+
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
