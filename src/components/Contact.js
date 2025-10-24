@@ -97,16 +97,16 @@ const Contact = () => {
 
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg flex items-center justify-center mr-4">
-                    <span className="text-xl">{info.icon}</span>
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                    <span className="text-white text-lg leading-none">{info.icon}</span>
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <h4 className="font-semibold text-lg mb-1">{info.title}</h4>
                     <a
                       href={info.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-blue-600 transition-colors"
+                      className="text-gray-600 hover:text-blue-600 transition-colors break-all"
                     >
                       {info.value}
                     </a>

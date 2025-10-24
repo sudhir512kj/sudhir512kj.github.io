@@ -98,6 +98,11 @@ html {
   background: #1e40af;
 }
 
+/* Responsive icon sizing */
+.icon-responsive {
+  font-size: 1.25rem; /* text-xl */
+}
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
@@ -105,5 +110,15 @@ html {
   
   .hero-subtitle {
     font-size: 1.2rem;
+  }
+  
+  .icon-responsive {
+    font-size: 1rem; /* text-base */
+  }
+}
+
+@media (max-width: 480px) {
+  .icon-responsive {
+    font-size: 0.875rem; /* text-sm */
   }
 }
