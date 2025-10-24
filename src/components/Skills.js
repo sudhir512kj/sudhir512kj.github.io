@@ -3,41 +3,69 @@ import React from 'react';
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Backend Technologies',
+      title: 'Programming & Frameworks',
       skills: [
         { name: 'Java', level: 95 },
-        { name: 'Spring Boot', level: 90 },
-        { name: 'Microservices', level: 85 },
-        { name: 'RESTful APIs', level: 92 },
+        { name: 'Spring Boot & Spring Framework', level: 90 },
+        { name: 'JavaScript, Python, Golang', level: 85 },
+        { name: 'Frontend - React, HTML, CSS', level: 92 },
       ],
     },
     {
-      title: 'Cloud & DevOps',
+      title: 'Enterprise & Distributed Systems',
       skills: [
-        { name: 'AWS', level: 85 },
-        { name: 'Docker', level: 88 },
-        { name: 'Kubernetes', level: 80 },
-        { name: 'Jenkins', level: 75 },
+        { name: 'Distributed Systems Design', level: 85 },
+        { name: 'System Architecture (HLD/LLD)', level: 88 },
+        { name: 'Performance Optimization', level: 80 },
+        { name: 'Scalability Engineering', level: 75 },
       ],
     },
     {
-      title: 'Databases',
+      title: 'Data & Caching',
       skills: [
-        { name: 'PostgreSQL', level: 88 },
-        { name: 'MySQL', level: 85 },
-        { name: 'MongoDB', level: 80 },
-        { name: 'Redis', level: 75 },
+        { name: 'Database Design & Optimization', level: 88 },
+        { name: 'MongoDB, DynamoDB, Cassandra', level: 85 },
+        { name: 'PostgreSQL, MySQL', level: 80 },
+        { name: 'Redis, Kafka', level: 75 },
       ],
     },
     {
-      title: 'Programming Languages',
+      title: 'Security & Reliability',
       skills: [
-        { name: 'Java', level: 95 },
-        { name: 'Golang', level: 82 },
-        { name: 'Python', level: 78 },
-        { name: 'JavaScript', level: 70 },
+        { name: 'Application Security', level: 95 },
+        { name: 'Cybersecurity Principles', level: 82 },
+        { name: 'SIEM Tools', level: 78 }
       ],
     },
+    {
+      title: "Cloud Stack",
+      skills: [
+        { name: "AWS - Networking, Serverless, Storage, EKS / ECS / ECR, Databases", level: 90 },
+        { name: "GCP - Networking, Databases, BigQuery, Storage, AIML", level: 90 },
+        { name: "Azure - Computing, Networking, Storage, Databases, KeyVault", level: 80 }
+      ]
+    },
+    {
+      title: "Logging & Monitoring",
+      skills: [
+        { name: "Grafana & Prometheus", level: 90 },
+        { name: "ElasticSearch", level: 90 }
+      ]
+    },
+    {
+      title: "DevOps & Infrastructure",
+      skills: [
+        { name: "Docker & Kubernetes", level: 90 },
+        { name: "GitHub, GitLab, GitHub Actions", level: 90 },
+        { name: "Hashicorp Vault", level: 80 }
+      ]
+    },
+    {
+      title: "Software Development Practices",
+      skills: [
+        { name: "TDD and DDD", level: 90 }
+      ]
+    }
   ];
 
   return (
@@ -70,7 +98,7 @@ const Skills = () => {
                     </span>
                   </div>
                   <div className="w-full bg-gray-600 rounded-full h-3">
-                    <div 
+                    <div
                       className="bg-gradient-to-r from-blue-400 to-cyan-400 h-3 rounded-full transition-all duration-1000"
                       style={{ width: `${skill.level}%` }}
                     ></div>
