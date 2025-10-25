@@ -58,8 +58,8 @@ const Projects = () => {
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg flex items-center justify-center mr-4">
-                    <span className="text-white text-xl">🚀</span>
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                    <span className="text-white text-lg leading-none">🚀</span>
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-1">{project.title}</h3>
