@@ -33,9 +33,9 @@ const Contact = () => {
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         {
-          from_name: formData.name,
-          reply_to: formData.email,
-          subject: formData.subject || 'New Contact from Portfolio',
+          name: formData.name,
+          email: formData.email,
+          title: formData.subject || 'New Contact from Portfolio',
           message: formData.message,
         },
         process.env.REACT_APP_EMAILJS_PUBLIC_KEY
