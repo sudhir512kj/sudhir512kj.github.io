@@ -22,7 +22,7 @@ A modern, responsive portfolio website built with React and Material-UI to showc
 
 1. Clone the repository
 2. Install dependencies: `npm install`
-3. Configure EmailJS (see below)
+3. Configure EmailJS and Stripe (see below)
 4. Start development server: `npm start`
 
 ## EmailJS Configuration
@@ -62,7 +62,27 @@ To enable recruiters to send you emails via the contact form:
        REACT_APP_EMAILJS_SERVICE_ID: ${{ secrets.REACT_APP_EMAILJS_SERVICE_ID }}
        REACT_APP_EMAILJS_TEMPLATE_ID: ${{ secrets.REACT_APP_EMAILJS_TEMPLATE_ID }}
        REACT_APP_EMAILJS_PUBLIC_KEY: ${{ secrets.REACT_APP_EMAILJS_PUBLIC_KEY }}
+       REACT_APP_STRIPE_PUBLISHABLE_KEY: ${{ secrets.REACT_APP_STRIPE_PUBLISHABLE_KEY }}
    ```
+
+## Stripe Configuration
+
+To enable direct payments for mentorship sessions:
+
+1. Create account at [Stripe](https://stripe.com/)
+2. Get your publishable and secret keys from the dashboard
+3. Add to environment variables:
+   - `REACT_APP_STRIPE_PUBLISHABLE_KEY` (starts with pk_)
+   - `STRIPE_SECRET_KEY` (starts with sk_) - for serverless function
+4. Deploy the API endpoint (`/api/create-checkout-session.js`) to Vercel or similar platform
+5. Update Topmate and GeeksforGeeks profile links in the mentorship component
+
+## Mentorship Features
+
+- **Platform Integration**: Direct links to Topmate and GeeksforGeeks Expert profiles
+- **Direct Payment**: Stripe integration for immediate booking and payment
+- **Multiple Plans**: Basic (30min), Standard (60min), Premium (90min) consultation options
+- **Responsive Design**: Works seamlessly on all devices
 
 ## Deployment
 

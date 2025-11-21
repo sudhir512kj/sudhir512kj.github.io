@@ -1,25 +1,48 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const menuItems = ['Home', 'About', 'Skills', 'Experience', 'Certifications', 'Projects', 'Contact'];
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+  
+  const homeMenuItems = ['Home', 'About', 'Skills', 'Experience', 'Certifications', 'Projects', 'Contact'];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="font-bold text-white text-xl">SUDHIR MEENA</div>
+          <Link to="/" className="font-bold text-white text-xl hover:text-blue-400 transition-colors">
+            SUDHIR MEENA
+          </Link>
 
           <div className="hidden md:flex space-x-8">
-            {menuItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+            {isHomePage ? (
+              homeMenuItems.map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-white hover:text-blue-400 transition-colors"
+                >
+                  {item}
+                </a>
+              ))
+            ) : (
+              <Link
+                to="/"
                 className="text-white hover:text-blue-400 transition-colors"
               >
-                {item}
-              </a>
-            ))}
+                Home
+              </Link>
+            )}
+            <Link
+              to="/mentorship"
+              className={`text-white hover:text-blue-400 transition-colors ${
+                location.pathname === '/mentorship' ? 'text-blue-400' : ''
+              }`}
+            >
+              Mentorship
+            </Link>
             <a
               href="/SudhirMeena_Resume.pdf"
               target="_blank"
@@ -41,16 +64,33 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {menuItems.map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+              {isHomePage ? (
+                homeMenuItems.map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    className="block text-white hover:text-blue-400 px-3 py-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item}
+                  </a>
+                ))
+              ) : (
+                <Link
+                  to="/"
                   className="block text-white hover:text-blue-400 px-3 py-2"
                   onClick={() => setIsOpen(false)}
                 >
-                  {item}
-                </a>
-              ))}
+                  Home
+                </Link>
+              )}
+              <Link
+                to="/mentorship"
+                className="block text-white hover:text-blue-400 px-3 py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Mentorship
+              </Link>
             </div>
           </div>
         )}
