@@ -5,8 +5,7 @@ const Mentorship = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
 
-  // Stripe is enabled for test when REACT_APP_ENV is set to 'development'
-  const isDev = process.env.REACT_APP_ENV === 'development';
+
 
   const mentorshipPlans = [
     {
@@ -40,25 +39,20 @@ const Mentorship = () => {
   }, [showAlert]);
 
   const handleStripePayment = async (plan) => {
-    if (isDev) {
-      try {
-        const stripe = window.Stripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
-        
-        const response = await fetch('/api/create-checkout-session', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ planId: plan.id, amount: plan.price })
-        });
-        
-        const session = await response.json();
-        await stripe.redirectToCheckout({ sessionId: session.id });
-      } catch (error) {
-        console.error('Payment error:', error);
-        setAlertMessage('Payment failed. Please try again.');
-        setShowAlert(true);
-      }
-    } else {
-      setAlertMessage('This feature is currently in progress. Contact me via contact form');
+    try {
+      const stripe = window.Stripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+      
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ planId: plan.id, amount: plan.price })
+      });
+      
+      const session = await response.json();
+      await stripe.redirectToCheckout({ sessionId: session.id });
+    } catch (error) {
+      console.error('Payment error:', error);
+      setAlertMessage('Payment failed. Please try again.');
       setShowAlert(true);
     }
   };
