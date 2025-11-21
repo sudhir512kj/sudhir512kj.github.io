@@ -5,6 +5,7 @@ const Mentorship = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
 
+  // Stripe is enabled for test when REACT_APP_ENV is set to 'development'
   const isDev = process.env.REACT_APP_ENV === 'development';
 
   const mentorshipPlans = [
