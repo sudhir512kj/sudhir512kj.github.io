@@ -40,7 +40,13 @@ const Mentorship = () => {
 
   const handleStripePayment = async (plan) => {
     try {
-      const stripe = window.Stripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+      const publishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
+      
+      if (!publishableKey) {
+        throw new Error('Stripe publishable key is not configured. Please set REACT_APP_STRIPE_PUBLISHABLE_KEY in your environment variables.');
+      }
+      
+      const stripe = window.Stripe(publishableKey);
       
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
@@ -52,7 +58,7 @@ const Mentorship = () => {
       await stripe.redirectToCheckout({ sessionId: session.id });
     } catch (error) {
       console.error('Payment error:', error);
-      setAlertMessage('Payment failed. Please try again.');
+      setAlertMessage(error.message || 'Payment failed. Please try again.');
       setShowAlert(true);
     }
   };
