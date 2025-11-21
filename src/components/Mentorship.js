@@ -62,7 +62,8 @@ const PaymentModal = ({ plan, onClose }) => {
       body: JSON.stringify({ planId: plan.id, amount: plan.price }),
     })
       .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+      .then((data) => setClientSecret(data.clientSecret))
+      .catch((err) => console.error('Payment intent error:', err));
   }, [plan]);
 
   return clientSecret ? (
@@ -76,6 +77,11 @@ const Mentorship = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
+
+  const handlePaymentClick = (plan) => {
+    setAlertMessage('Payment feature is under development. Please use the');
+    setShowAlert(true);
+  };
 
   const mentorshipPlans = [
     {
@@ -193,7 +199,7 @@ const Mentorship = () => {
                   ))}
                 </ul>
 
-                <button onClick={(e) => { e.stopPropagation(); setSelectedPlan(plan); }} className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                <button onClick={(e) => { e.stopPropagation(); handlePaymentClick(plan); }} className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
                   Pay with Stripe
                 </button>
               </div>
