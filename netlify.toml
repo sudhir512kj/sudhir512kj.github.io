@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+  functions = "api"
+
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "REACT_APP_STRIPE_PUBLISHABLE_KEY"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
