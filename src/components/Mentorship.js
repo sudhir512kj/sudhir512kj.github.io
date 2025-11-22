@@ -82,6 +82,18 @@ const Mentorship = () => {
         </div>
       )}
 
+      <div className="sticky top-16 z-40 bg-slate-800 border-b border-slate-700 py-3">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex justify-center gap-4 md:gap-8 flex-wrap text-sm md:text-base">
+            <a href="#mentorship" className="text-gray-300 hover:text-blue-400 transition-colors">Plans</a>
+            <a href="#cancellation" className="text-gray-300 hover:text-blue-400 transition-colors">Cancellation</a>
+            <a href="#terms" className="text-gray-300 hover:text-blue-400 transition-colors">Terms</a>
+            <a href="#shipping" className="text-gray-300 hover:text-blue-400 transition-colors">Shipping</a>
+            <a href="#privacy" className="text-gray-300 hover:text-blue-400 transition-colors">Privacy</a>
+          </div>
+        </div>
+      </div>
+
       <section id="mentorship" className="py-20 bg-slate-900">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -181,7 +193,7 @@ const Mentorship = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12 mb-16">
+          <div className="text-center mt-12">
             <p className="text-gray-400 mb-4">
               After payment, you will receive booking instructions via email.
             </p>
@@ -191,13 +203,6 @@ const Mentorship = () => {
                 sudhirmeena230995@gmail.com
               </a>
             </p>
-          </div>
-
-          <div className="flex justify-center gap-6 mb-16 flex-wrap">
-            <a href="#cancellation" className="text-blue-400 hover:underline">Cancellation & Refunds</a>
-            <a href="#terms" className="text-blue-400 hover:underline">Terms and Conditions</a>
-            <a href="#shipping" className="text-blue-400 hover:underline">Shipping</a>
-            <a href="#privacy" className="text-blue-400 hover:underline">Privacy</a>
           </div>
         </div>
       </section>
