@@ -21,13 +21,13 @@ const Experience = () => {
             {experiences.map((exp, index) => (
               <div key={index} className="relative mb-12">
                 <div className="absolute -left-10 top-2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
-                
+
                 <div className="ml-4 bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-400 hover:shadow-xl transition-all hover:translate-x-2">
                   <h3 className="text-2xl font-bold text-blue-600 mb-2">{exp.title}</h3>
                   <p className="text-gray-600 font-medium mb-1">{exp.company} - {exp.location}</p>
                   <p className="text-blue-500 font-medium text-sm mb-4">{exp.period}</p>
                   <p className="text-gray-700 mb-4">{exp.description}</p>
-                  
+
                   {exp.responsibilities && exp.responsibilities.length > 0 && (
                     <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
                       {exp.responsibilities.map((resp, idx) => (
@@ -35,7 +35,7 @@ const Experience = () => {
                       ))}
                     </ul>
                   )}
-                  
+
                   <div>
                     <p className="font-semibold text-gray-800 mb-3">Technologies:</p>
                     <div className="flex flex-wrap gap-2">
@@ -49,14 +49,14 @@ const Experience = () => {
                 </div>
               </div>
             ))}
-            
+
             {/* More+ Button */}
             <div className="relative mb-12">
               <div className="absolute -left-10 top-2 w-4 h-4 bg-gray-400 rounded-full border-4 border-white shadow-lg"></div>
-              
+
               <div className="ml-4">
                 <a
-                  href="/SudhirMeena_JavaBackend_Resume.pdf"
+                  href="/SudhirMeena_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"

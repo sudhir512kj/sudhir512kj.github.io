@@ -4,9 +4,10 @@ const Mentorship = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('razorpay');
 
-  // Stripe is enabled for test when REACT_APP_ENV is set to 'development'
   const isDev = process.env.REACT_APP_ENV === 'development';
+  const API_URL = process.env.REACT_APP_API_URL || '';
 
   const mentorshipPlans = [
     {
@@ -39,27 +40,90 @@ const Mentorship = () => {
     }
   }, [showAlert]);
 
+  const handleRazorpayPayment = async (plan) => {
+    try {
+      const response = await fetch(`${API_URL}/api/create-razorpay-order`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ planId: plan.id, amount: plan.price })
+      });
+
+      const order = await response.json();
+
+      const options = {
+        key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+        amount: order.amount,
+        currency: order.currency,
+        name: 'Sudhir Meena Mentorship',
+        description: plan.name,
+        order_id: order.id,
+        handler: function (response) {
+          window.location.href = `/payment-status?success=true&payment_id=${response.razorpay_payment_id}`;
+        },
+        prefill: {
+          name: '',
+          email: '',
+          contact: ''
+        },
+        theme: {
+          color: '#2563eb'
+        },
+        modal: {
+          ondismiss: function() {
+            window.location.href = '/payment-status?canceled=true';
+          }
+        }
+      };
+
+      const razorpay = new window.Razorpay(options);
+      razorpay.open();
+    } catch (error) {
+      console.error('Razorpay error:', error);
+      setAlertMessage('Payment failed. Please try again.');
+      setShowAlert(true);
+    }
+  };
+
   const handleStripePayment = async (plan) => {
-    if (isDev) {
-      try {
-        const stripe = window.Stripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
-        
-        const response = await fetch('/api/create-checkout-session', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ planId: plan.id, amount: plan.price })
-        });
-        
-        const session = await response.json();
-        await stripe.redirectToCheckout({ sessionId: session.id });
-      } catch (error) {
-        console.error('Payment error:', error);
-        setAlertMessage('Payment failed. Please try again.');
-        setShowAlert(true);
+    try {
+      const stripe = window.Stripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+      
+      const response = await fetch(`${API_URL}/api/create-checkout-session`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ planId: plan.id, amount: plan.price })
+      });
+      
+      const data = await response.json();
+      console.log('Stripe response:', data);
+      
+      if (!data.id) {
+        throw new Error('No session ID received from server');
       }
-    } else {
+      
+      const result = await stripe.redirectToCheckout({ sessionId: data.id });
+      
+      if (result.error) {
+        throw new Error(result.error.message);
+      }
+    } catch (error) {
+      console.error('Stripe error:', error);
+      setAlertMessage(`Payment failed: ${error.message}`);
+      setShowAlert(true);
+    }
+  };
+
+  const handlePayment = (plan) => {
+    if (!isDev) {
       setAlertMessage('This feature is currently in progress. Contact me via contact form');
       setShowAlert(true);
+      return;
+    }
+
+    if (paymentMethod === 'razorpay') {
+      handleRazorpayPayment(plan);
+    } else {
+      handleStripePayment(plan);
     }
   };
 
@@ -152,9 +216,32 @@ const Mentorship = () => {
             </div>
           </div>
 
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-white mb-4">Direct Payment Plans</h3>
-            <p className="text-gray-300">Pay directly and schedule sessions via email or WhatsApp</p>
+            <p className="text-gray-300 mb-6">Pay directly and schedule sessions via email or WhatsApp</p>
+            
+            <div className="flex justify-center gap-4 mb-8">
+              <button
+                onClick={() => setPaymentMethod('razorpay')}
+                className={`px-6 py-2 rounded-lg transition-colors ${
+                  paymentMethod === 'razorpay'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-slate-700 text-gray-300 hover:bg-slate-600'
+                }`}
+              >
+                Razorpay
+              </button>
+              <button
+                onClick={() => setPaymentMethod('stripe')}
+                className={`px-6 py-2 rounded-lg transition-colors ${
+                  paymentMethod === 'stripe'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-slate-700 text-gray-300 hover:bg-slate-600'
+                }`}
+              >
+                Stripe
+              </button>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -183,11 +270,11 @@ const Mentorship = () => {
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleStripePayment(plan);
+                    handlePayment(plan);
                   }}
                   className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  Pay with Stripe
+                  Pay with {paymentMethod === 'razorpay' ? 'Razorpay' : 'Stripe'}
                 </button>
               </div>
             ))}
@@ -263,7 +350,7 @@ const Mentorship = () => {
             <p>Your privacy is important to us. This policy outlines how we handle your information:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>We collect only necessary information: name, email, and payment details for booking purposes.</li>
-              <li>Payment information is processed securely through Stripe and is not stored on our servers.</li>
+              <li>Payment information is processed securely through Stripe/Razorpay and is not stored on our servers.</li>
               <li>Your personal information will not be shared with third parties except as required for service delivery.</li>
               <li>Session content and discussions remain confidential between you and the mentor.</li>
               <li>We may use your email to send booking confirmations and session-related communications.</li>
